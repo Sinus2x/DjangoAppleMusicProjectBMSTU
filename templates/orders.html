@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Artists{% endblock %}
+
+{% block content %}
+{% load static %}
+<ul>
+    {% for artist in data.artists %}
+        <li><a href="{% url 'artist_url' artist.id %}">{{ artist.title }}</a> </li>
+        {% if artist.title == 'Nirvana' %}
+            <img src="{% static '/images/nirvana_logo.jpg' %}" width="320" height="247">
+        {% endif %}
+        {% if artist.title == 'AC/DC' %}
+            <img src="{% static '/images/acdc_logo.png' %}" width="320" height="247">
+        {% endif %}
+        {% if artist.title == 'Led Zeppelin' %}
+            <img src="{% static '/images/lz_logo.jpg' %}" width="320" height="247">
+        {% endif %}
+    {% empty %}
+        <li>Список пуст</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
