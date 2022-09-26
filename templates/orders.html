@@ -4,9 +4,9 @@
 
 {% block content %}
 {% load static %}
-<ul>
+<ul class="artist_list">
     {% for artist in data.artists %}
-        <li><a href="{% url 'artist_url' artist.id %}">{{ artist.title }}</a> </li>
+        <li><a class="artist_link" href="{% url 'artist_url' artist.id %}">{{ artist.title }}</a> </li>
         {% if artist.title == 'Nirvana' %}
             <img src="{% static '/images/nirvana_logo.jpg' %}" width="320" height="247">
         {% endif %}
