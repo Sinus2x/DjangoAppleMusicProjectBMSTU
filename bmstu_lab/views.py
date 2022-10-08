@@ -10,15 +10,15 @@ def hello(request):
     }})
 
 
-def GetOrders(request):
+def get_orders(request):
     return render(request, 'orders.html', {'data': {
         'current_date': date.today(),
         'albums': Albums.objects.all()
     }})
 
 
-def GetOrder(request, id):
+def get_order(request, id):
     return render(request, 'order.html', {'data': {
         'current_date': date.today(),
-        'album': Albums.objects.filter(album_id=id)
+        'album': Albums.objects.filter(album_id=id)[0]
     }})

@@ -7,6 +7,7 @@ class Albums(models.Model):
     n_songs = models.IntegerField()
     artist = models.CharField(max_length=255, blank=True, null=True)
     description = models.CharField(max_length=255, blank=True, null=True)
+    img = models.CharField(max_length=255, blank=True)
 
     class Meta:
         managed = False
@@ -26,8 +27,8 @@ class Customers(models.Model):
 
 class Orders(models.Model):
     order_id = models.AutoField(primary_key=True)
-    customer_id = models.ForeignKey(Customers, models.DO_NOTHING)
-    album_id = models.IntegerField()
+    customer = models.ForeignKey(Customers, models.DO_NOTHING)
+    album = models.ForeignKey(Albums, models.DO_NOTHING)
 
     class Meta:
         managed = False

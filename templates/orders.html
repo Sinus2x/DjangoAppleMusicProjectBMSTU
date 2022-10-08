@@ -1,21 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}Artists{% endblock %}
+{% block title %}Albums{% endblock %}
 
 {% block content %}
 {% load static %}
-<ul class="artist_list">
+<ul class="album_list">
     {% for album in data.albums %}
-        <li><a class="artist_link" href="{% url 'album_url' album.album_id %}">{{ album.name }}</a> </li>
-{#        {% if artist.title == 'Nirvana' %}#}
-{#            <img src="{% static '/images/nirvana_logo.jpg' %}" width="320" height="247">#}
-{#        {% endif %}#}
-{#        {% if artist.title == 'AC/DC' %}#}
-{#            <img src="{% static '/images/acdc_logo.png' %}" width="320" height="247">#}
-{#        {% endif %}#}
-{#        {% if artist.title == 'Led Zeppelin' %}#}
-{#            <img src="{% static '/images/lz_logo.jpg' %}" width="320" height="247">#}
-{#        {% endif %}#}
+        <li><a class="album_link" href="{% url 'album_url' album.album_id %}">{{ album.name }}</a> </li>
+        <img class="album_img" src="{% static '/images/'|add:album.img %}" width="320" height="247"/>
     {% empty %}
         <li>Список пуст</li>
     {% endfor %}

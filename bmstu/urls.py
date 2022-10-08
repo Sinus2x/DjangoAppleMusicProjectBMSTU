@@ -19,6 +19,6 @@ from bmstu_lab import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.GetOrders),
-    path('album/<int:id>/', views.GetOrder, name='album_url'),
+    path('', views.get_orders),
+    path('album/<int:id>/', views.get_order, name='album_url'),
 ]
