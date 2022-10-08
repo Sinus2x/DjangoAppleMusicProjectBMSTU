@@ -25,7 +25,7 @@ class Customers(models.Model):
 
 class Orders(models.Model):
     order_id = models.AutoField(primary_key=True)
-    customer = models.ForeignKey(Customers, models.DO_NOTHING)
+    customer_id = models.ForeignKey(Customers, models.DO_NOTHING)
     album_id = models.IntegerField()
 
     class Meta:
