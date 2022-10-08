@@ -11,14 +11,14 @@ def hello(request):
 
 
 def get_orders(request):
-    return render(request, 'orders.html', {'data': {
+    return render(request, 'albums.html', {'data': {
         'current_date': date.today(),
         'albums': Albums.objects.all()
     }})
 
 
 def get_order(request, id):
-    return render(request, 'order.html', {'data': {
+    return render(request, 'album.html', {'data': {
         'current_date': date.today(),
         'album': Albums.objects.filter(album_id=id)[0]
     }})
