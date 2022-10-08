@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from datetime import date
+from bmstu_lab.models import Albums
 
 
 def hello(request):
@@ -10,18 +11,14 @@ def hello(request):
 
 
 def GetOrders(request):
-    return render(request, 'orders.html', {'data' : {
+    return render(request, 'orders.html', {'data': {
         'current_date': date.today(),
-        'artists': [
-            {'title': 'AC/DC', 'id': 1},
-            {'title': 'Nirvana', 'id': 2},
-            {'title': 'Led Zeppelin', 'id': 3},
-        ]
+        'albums': Albums.objects.all()
     }})
 
 
 def GetOrder(request, id):
-    return render(request, 'order.html', {'data' : {
+    return render(request, 'order.html', {'data': {
         'current_date': date.today(),
-        'id': id
+        'album': Albums.objects.filter(album_id=id)
     }})

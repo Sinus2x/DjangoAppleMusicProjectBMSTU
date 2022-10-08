@@ -20,5 +20,5 @@ from bmstu_lab import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.GetOrders),
-    path('artist/<int:id>/', views.GetOrder, name='artist_url'),
+    path('album/<int:id>/', views.GetOrder, name='album_url'),
 ]
