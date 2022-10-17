@@ -21,6 +21,7 @@ from rest_framework import routers
 router = routers.DefaultRouter()
 router.register(r'albums', views.AlbumViewSet)
 router.register(r'customers', views.CustomerViewSet)
+router.register(r'orders', views.OrderViewSet)
 
 urlpatterns = [
     path('', views.get_orders),
