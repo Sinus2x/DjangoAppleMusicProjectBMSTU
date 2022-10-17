@@ -25,10 +25,19 @@ class Customers(models.Model):
         db_table = 'customers'
 
 
+class AlbumsOrders(models.Model):
+    album_order_id = models.AutoField(primary_key=True)
+    order = models.ForeignKey('Orders', models.DO_NOTHING)
+    album = models.ForeignKey(Albums, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'album_order'
+
+
 class Orders(models.Model):
     order_id = models.AutoField(primary_key=True)
     customer = models.ForeignKey(Customers, models.DO_NOTHING)
-    album = models.ForeignKey(Albums, models.DO_NOTHING)
 
     creation_date = models.DateTimeField(blank=True, null=True)
     edit_date = models.DateTimeField(blank=True, null=True)
@@ -37,3 +46,4 @@ class Orders(models.Model):
     class Meta:
         managed = False
         db_table = 'orders'
+
