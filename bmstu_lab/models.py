@@ -30,6 +30,10 @@ class Orders(models.Model):
     customer = models.ForeignKey(Customers, models.DO_NOTHING)
     album = models.ForeignKey(Albums, models.DO_NOTHING)
 
+    creation_date = models.DateTimeField(blank=True, null=True)
+    edit_date = models.DateTimeField(blank=True, null=True)
+    exec_date = models.DateTimeField(blank=True, null=True)
+
     class Meta:
         managed = False
         db_table = 'orders'
