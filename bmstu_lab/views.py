@@ -1,7 +1,17 @@
 from django.shortcuts import render
 from datetime import date
 from bmstu_lab.models import Albums
+from rest_framework import viewsets
+from bmstu_lab.serializers import AlbumSerializer
+from bmstu_lab.models import Albums
 
+class AlbumViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint, который позволяет просматривать и редактировать акции компаний
+    """
+    # queryset всех пользователей для фильтрации по дате последнего изменения
+    queryset = Albums.objects.all().order_by('name')
+    serializer_class = AlbumSerializer  # Сериализатор для модели
 
 def hello(request):
     return render(request, 'index.html', {'data': {

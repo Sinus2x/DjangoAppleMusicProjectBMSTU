@@ -16,9 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from bmstu_lab import views
+from django.urls import include, path
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'albums', views.AlbumViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.get_orders),
+    path('admin/', admin.site.urls),
     path('album/<int:id>/', views.get_order, name='album_url'),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
 ]
