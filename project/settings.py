@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tobacco',
-        'USER': 'puzzzik',
-        'PASSWORD': '1234',
+        'NAME': 'record',
+        'USER': 'postgres',
+        'PASSWORD': 'postgrespw',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '55001',
     }
 }
 
@@ -161,8 +161,8 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Tobacco API',
-    'DESCRIPTION': 'Tobacco Shop',
+    'TITLE': 'Record API',
+    'DESCRIPTION': 'Record Shop',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }
