@@ -162,7 +162,7 @@ SESSION_CACHE_ALIAS = "default"
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Record API',
-    'DESCRIPTION': 'Record Shop',
+    'DESCRIPTION': "Khatin's record",
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }
